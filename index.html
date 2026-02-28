@@ -1,38 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TRAL STORE</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="logo">TRAL STORE</div>
-      <nav>
-        <a href="#">Início</a>
-        <a href="#">Cadeiras</a>
-        <a href="#">Mesas</a>
-        <a href="#">Estantes</a>
-      </nav>
-      <div class="cart">🛒 <span id="cart-count">0</span></div>
-    </header>
+<head>
+<meta charset="UTF-8">
+<title>TRAL STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
 
-    <section class="hero">
-      <h1>Móveis Corporativos & Residenciais</h1>
-      <p>Design, resistência e performance</p>
-    </section>
+<body>
 
-    <section class="products">
-      <h2>Mais Vendidos</h2>
-      <div id="product-list" class="grid"></div>
-    </section>
+<header>
+  <div class="logo">TRAL STORE</div>
+  <div class="cart-icon" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+  </div>
+</header>
 
-    <footer>
-      <p>© 2026 TRAL STORE</p>
-    </footer>
+<section class="carousel">
+  <button class="nav prev" onclick="scrollCarousel(-1)">❮</button>
+  <div class="products" id="product-list"></div>
+  <button class="nav next" onclick="scrollCarousel(1)">❯</button>
+</section>
 
-    <script src="js/api.js"></script>
-    <script src="js/produtos.js"></script>
-  </body>
+<div class="cart" id="cart">
+  <h2>Carrinho</h2>
+  <div id="cart-items"></div>
+  <p>Total: R$ <span id="cart-total">0.00</span></p>
+
+  <button onclick="checkoutMP()" class="mp-btn">
+    Pagar com Mercado Pago
+  </button>
+
+  <a id="whatsapp-btn" target="_blank" class="wpp-btn">
+    Finalizar no WhatsApp
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
